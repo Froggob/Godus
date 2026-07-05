@@ -1,0 +1,17 @@
+{
+  "name": "Godus.Systems",
+  "rootNamespace": "Godus.Systems",
+  "references": [
+    "Godus.Core",
+    "Godus.Combat"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
