@@ -23,6 +23,7 @@ namespace Godus.Player
 
         private void Start()
         {
+            EnsureGameManager();
             CreateGround();
             var player = CreatePlayer();
             CreateEnemy(player);
@@ -176,6 +177,15 @@ namespace Godus.Player
         {
             var hud = new GameObject("HUD");
             hud.AddComponent<CurrencyHUD>();
+        }
+
+        private void EnsureGameManager()
+        {
+            if (GameManager.Instance == null)
+            {
+                var gm = new GameObject("GameManager");
+                gm.AddComponent<GameManager>();
+            }
         }
 
         // --- Helpers (same as before) ---
