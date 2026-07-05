@@ -63,11 +63,18 @@ namespace Godus.Player
             col.size = new Vector2(0.6f, 1.4f);
             col.offset = new Vector2(0f, -0.1f);
 
+            // Input actions — MUST create before AddComponent (OnEnable fires on Add)
+            var inputActions = CreateInputActions();
+
             // Components
             var dash = player.AddComponent<PlayerDash>();
             var attack = player.AddComponent<PlayerAttack>();
             var controller = player.AddComponent<PlayerController>();
             var inputHandler = player.AddComponent<PlayerInputHandler>();
+
+            // Wire input handler now (OnEnable already fired, set + enable manually)
+            SetField(inputHandler, "inputActions", inputActions);
+            inputActions.Enable();
 
             // Stats — create default Knight stats at runtime
             var stats = ScriptableObject.CreateInstance<ClassStats>();
@@ -101,10 +108,6 @@ namespace Godus.Player
             hitboxOrigin.transform.SetParent(player.transform);
             hitboxOrigin.transform.localPosition = new Vector3(1f, 0f, 0f);
             SetField(attack, "attackHitboxOrigin", hitboxOrigin.transform);
-
-            // Input actions — create and wire up directly
-            var inputActions = CreateInputActions();
-            SetField(inputHandler, "inputActions", inputActions);
         }
 
         private InputActionAsset CreateInputActions()
