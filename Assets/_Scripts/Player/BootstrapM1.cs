@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Godus.Player;
+using Godus.Core;
 
-namespace Godus.Core
+namespace Godus.Player
 {
     /// <summary>
     /// Milestone 1 bootstrap — creates the gray-box test room at runtime.
