@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using Godus.Core;
 using Godus.Combat;
 using Godus.Enemies;
+using Godus.UI;
 
 namespace Godus.Player
 {
@@ -26,6 +27,7 @@ namespace Godus.Player
             var player = CreatePlayer();
             CreateEnemy(player);
             EventBus.EmitRunStarted();
+            CreateHUD();
             Debug.Log("[Bootstrap] Room ready. WASD=Move, J=Attack, K/Shift=Dash");
         }
 
@@ -168,6 +170,12 @@ namespace Godus.Player
             SetField(enemy, "attackCooldown", 1.2f);
             SetField(enemy, "currencyDrop", 5);
             SetField(enemy, "attackHitbox", hitbox);
+        }
+
+        private void CreateHUD()
+        {
+            var hud = new GameObject("HUD");
+            hud.AddComponent<CurrencyHUD>();
         }
 
         // --- Helpers (same as before) ---

@@ -120,8 +120,7 @@ namespace Godus.Enemies
         protected virtual void OnDead()
         {
             _rb.simulated = false;
-            // Drop currency
-            EventBus.EmitCurrencyChanged(0); // placeholder — actual currency drop handled by pickup system
+            CurrencyPickup.Spawn(transform.position, currencyDrop);
         }
 
         // --- Public ---
