@@ -1,11 +1,9 @@
 {
-  "name": "Godus.Player",
-  "rootNamespace": "Godus.Player",
+  "name": "Godus.Enemies",
+  "rootNamespace": "Godus.Enemies",
   "references": [
     "Godus.Core",
-    "Godus.Combat",
-    "Godus.Enemies",
-    "Unity.InputSystem"
+    "Godus.Combat"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
